@@ -13,7 +13,11 @@
     "incremental": true,
     "paths": {
       "@config/*": ["src/config/*"],
-      "@environments/*": ["src/environments/*"]
+      "@environments/*": ["src/environments/*"],
+      "@modules/*": ["src/modules/*"],
+      "@resolvers/*": ["src/resolvers/*"],
+      "@services/*": ["src/services/*"],
+      "@entities/*": ["src/entities/*"]
     }
   }
 }
