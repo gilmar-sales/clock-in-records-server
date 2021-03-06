@@ -10,7 +10,7 @@ export class UserService {
   constructor(@InjectRepository(User) private repository: Repository<User>) {}
 
   async createUser(data: UserInput): Promise<User> {
-    const getUserByEmail = await this.repository.findOne({ email: data.email });
+    const getUserByEmail = await this.findByEmail(data.email);
 
     if (getUserByEmail)
       throw new BadRequestException('E-mail is already being used');
@@ -32,5 +32,9 @@ export class UserService {
 
   async listUsers(): Promise<User[]> {
     return await this.repository.find();
+  }
+
+  async findByEmail(data: string): Promise<User> {
+    return await this.repository.findOne({ email: data });
   }
 }
