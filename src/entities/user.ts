@@ -7,6 +7,7 @@ import {
 } from 'typeorm';
 
 import { Field, HideField, ObjectType } from '@nestjs/graphql';
+import EncryptTransformer from './transformers/encrypt';
 
 @ObjectType()
 @Entity()
@@ -24,7 +25,7 @@ export class User {
   email: string;
 
   @HideField()
-  @Column()
+  @Column({ transformer: EncryptTransformer })
   password: string;
 
   @Field()
