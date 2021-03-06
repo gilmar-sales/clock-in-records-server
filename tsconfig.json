@@ -17,7 +17,8 @@
       "@modules/*": ["src/modules/*"],
       "@resolvers/*": ["src/resolvers/*"],
       "@services/*": ["src/services/*"],
-      "@entities/*": ["src/entities/*"]
+      "@entities/*": ["src/entities/*"],
+      "@inputs/*": ["src/inputs/*"]
     }
   }
 }
