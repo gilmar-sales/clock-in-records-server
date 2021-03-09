@@ -21,7 +21,6 @@ export class RegisteredTime {
   @CreateDateColumn()
   timeRegistered: Date;
 
-  @Field()
   @Column()
   userId: number;
 
