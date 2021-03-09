@@ -34,25 +34,32 @@ export class RegisterResolver {
     return await this.registerService.listRegisters();
   }
 
-  @Query(() => [RegisteredTime])
   @UseGuards(AuthGuard)
+  @Query(() => [RegisteredTime])
   async listUserRegisters(@Context() context) {
     const userId = context.req.user.id;
 
     return await this.registerService.listUserRegisters(userId);
   }
 
+  @UseGuards(AuthGuard)
   @Mutation(() => RegisteredTime)
   async createRegister(
-    @Args('data') data: RegisterInput,
+    @Args('timeRegistered') timeRegistered: Date,
+    @Context() context,
   ): Promise<RegisteredTime> {
-    const newRegister = await this.registerService.createRegister(data);
+    const userId = context.req.user.id;
+
+    const newRegister = await this.registerService.createRegister({
+      timeRegistered,
+      userId,
+    });
 
     this.pubSub.publish('registerAdded', {
       registerAdded: newRegister,
     });
 
-    return await this.registerService.createRegister(data);
+    return newRegister;
   }
 
   @ResolveField(() => User, { name: 'user' })
