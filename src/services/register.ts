@@ -12,6 +12,12 @@ export class RegisterService {
     private readonly repository: Repository<RegisteredTime>,
   ) {}
 
+  public async listRegisters() {
+    const registers = await this.repository.find();
+
+    return registers;
+  }
+
   public async listUserRegisters(userId: number) {
     const registers = await this.repository.find({ where: { userId } });
 
