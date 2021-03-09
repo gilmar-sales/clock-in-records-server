@@ -15,7 +15,6 @@ import { User } from '@entities/user';
 import { RegisterService } from '@services/register';
 import { UserService } from '@services/user';
 
-import RegisterInput from '@inputs/register';
 import { Inject, UseGuards } from '@nestjs/common';
 import { AuthGuard } from 'src/guards/auth';
 
