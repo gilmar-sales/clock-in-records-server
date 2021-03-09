@@ -17,6 +17,7 @@ import { UserService } from '@services/user';
 
 import { Inject, UseGuards } from '@nestjs/common';
 import { AuthGuard } from 'src/guards/auth';
+import { RoleGuard } from 'src/guards/role';
 
 import { PubSub } from 'graphql-subscriptions';
 
@@ -28,6 +29,7 @@ export class RegisterResolver {
     private readonly pubSub: PubSub,
   ) {}
 
+  @UseGuards(RoleGuard)
   @Query(() => [RegisteredTime])
   async listRegisters() {
     return await this.registerService.listRegisters();
