@@ -21,6 +21,11 @@ export class RegisteredTime {
   @CreateDateColumn()
   timeRegistered: Date;
 
+  @Field()
+  @Column()
+  type: 'in' | 'out';
+
+  @Field()
   @Column()
   userId: number;
 

@@ -47,12 +47,14 @@ export class RegisterResolver {
   @Mutation(() => RegisteredTime)
   async createRegister(
     @Args('timeRegistered') timeRegistered: Date,
+    @Args('type') type: 'in' | 'out',
     @Context() context,
   ): Promise<RegisteredTime> {
     const userId = context.req.user.id;
 
     const newRegister = await this.registerService.createRegister({
       timeRegistered,
+      type,
       userId,
     });
 

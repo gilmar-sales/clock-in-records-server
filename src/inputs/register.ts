@@ -6,5 +6,8 @@ export default class RegisterInput {
   timeRegistered: Date;
 
   @Field()
+  type: 'in' | 'out';
+
+  @Field()
   userId: number;
 }
