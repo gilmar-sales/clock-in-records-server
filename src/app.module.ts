@@ -9,11 +9,14 @@ import * as typeOrmOptions from '@config/typeorm';
 import graphqlOptions from '@config/graphql';
 
 import UserModule from '@modules/user';
+import AuthModule from '@modules/register';
+
 @Module({
   imports: [
     TypeOrmModule.forRoot(typeOrmOptions),
     GraphQLModule.forRoot(graphqlOptions),
     UserModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
