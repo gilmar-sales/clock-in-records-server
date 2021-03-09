@@ -2,15 +2,17 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-
 import { Field, HideField, ObjectType } from '@nestjs/graphql';
+
 import EncryptTransformer from './transformers/encrypt';
+import { RegisteredTime } from './registered-time';
 
 @ObjectType()
-@Entity()
+@Entity({ name: 'users' })
 export class User {
   @Field()
   @PrimaryGeneratedColumn()
@@ -29,7 +31,7 @@ export class User {
   password: string;
 
   @Field()
-  @Column()
+  @Column({ default: 'collaborator' })
   role: string;
 
   @Field()
@@ -39,4 +41,7 @@ export class User {
   @Field()
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @OneToMany(() => RegisteredTime, (register) => register.userConnection)
+  registerConnection: Promise<RegisteredTime[]>;
 }
