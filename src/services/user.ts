@@ -31,7 +31,7 @@ export class UserService {
   }
 
   async listUsers(): Promise<User[]> {
-    return await this.repository.find();
+    return await this.repository.find({ order: { id: 'DESC' } });
   }
 
   async findByEmail(data: string): Promise<User> {
