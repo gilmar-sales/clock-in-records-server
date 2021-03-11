@@ -15,12 +15,12 @@ export class AuthService {
   async validateUser(email: string, password: string): Promise<any> {
     const user = await this.userService.findByEmail(email);
 
-    if (!user) throw new BadRequestException('E-mail not registered');
+    if (!user) throw new BadRequestException('email:Email not registered');
 
     if (compareSync(password, user.password)) {
       delete user.password;
       return this.login(user);
-    } else throw new BadRequestException('Incorrect password');
+    } else throw new BadRequestException('password:Incorrect password');
   }
 
   async login(user: User) {
