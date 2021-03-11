@@ -11,6 +11,6 @@ export default class UserInput {
   @Field()
   password: string;
 
-  @Field({ nullable: true })
+  @Field()
   role: string;
 }
