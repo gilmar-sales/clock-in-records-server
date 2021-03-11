@@ -13,13 +13,16 @@ export class RegisterService {
   ) {}
 
   public async listRegisters() {
-    const registers = await this.repository.find();
+    const registers = await this.repository.find({ order: { id: 'DESC' } });
 
     return registers;
   }
 
   public async listUserRegisters(userId: number) {
-    const registers = await this.repository.find({ where: { userId } });
+    const registers = await this.repository.find({
+      where: { userId },
+      order: { id: 'DESC' },
+    });
 
     return registers;
   }
