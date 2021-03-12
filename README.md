@@ -76,6 +76,12 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## :card_file_box: Add administrator account to begin using
+
+```bash
+$ yarn typeorm migration:run
+```
+
 ## :page_facing_up: Informations
 
 - Author - [Gilmar Custodio](https://github.com/gilmarxd)
