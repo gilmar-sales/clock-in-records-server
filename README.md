@@ -39,6 +39,10 @@ The development proposal consists of the implementation of a system for the mana
 - [Nest](https://github.com/nestjs/nest): A progressive Node.js framework for building efficient, scalable, and enterprise-grade server-side applications.
 - [TypeORM](https://github.com/typeorm/typeorm): ORM for TypeScript and JavaScript.
 - [GraphQL](https://github.com/graphql/graphql-js): GraphQL is a query language and execution engine tied to any backend service.
+- [Apollo Server](https://www.apollographql.com/docs/apollo-server/): Is an open-source, spec-compliant GraphQL server that's compatible with any GraphQL client, including Apollo Client.
+- [PostgreSQL](https://www.postgresql.org/): The World's Most Advanced Open Source Relational Database.
+- [Docker Compose](https://docs.docker.com/compose/): With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.
+- [JSON Web Token]() Is an open standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.
 
 ## Installation
 
