@@ -13,7 +13,10 @@ export class UserService {
     const getUserByEmail = await this.findByEmail(data.email);
 
     if (getUserByEmail)
-      throw new BadRequestException('E-mail is already being used');
+      throw new BadRequestException(
+        'email:E-mail is already being used',
+        'error',
+      );
 
     const user = this.repository.create(data);
 
